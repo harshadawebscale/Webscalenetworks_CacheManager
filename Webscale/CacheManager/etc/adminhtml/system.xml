@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Config/etc/system_file.xsd">
+    <system>
+        <!-- for add new tab in Magento2 system configuration section -->
+	    <tab id="Webscale" translate="label" sortOrder="10">
+             <label>Webscale</label>
+        </tab>
+        <!-- for create section -->
+        <section id="cachemanager" translate="label" type="text" sortOrder="320" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Cache Manager</label>
+            <!-- Assign section to tab -->
+            <tab>Webscale</tab>
+            <resource>Webscale_CacheManager::configuration</resource>
+            <!-- create group for fields in section -->
+            <group id="Setup" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Setup</label>
+                <!-- create text type field -->
+                <field id="token" translate="label comment" sortOrder="7" type="password" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>API Token</label>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="query" translate="label comment" sortOrder="8" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Query String</label>
+                </field>
+                <field id="app_name" translate="label comment" sortOrder="8" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Application ID (Webscale portal)</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
+  

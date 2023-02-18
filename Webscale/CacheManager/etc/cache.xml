@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Cache/etc/cache.xsd">
+    <type name="sitecache" translate="label,description" instance="Webscale\CacheManager\Model\Cache\Type">
+        <label>Site Cache</label>
+        <description>Webscale Site Cache</description>
+    </type>
+</config>
