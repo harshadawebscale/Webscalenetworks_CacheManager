@@ -11,7 +11,8 @@
         }
     ],
     "require": {
-        "magento/framework": "*"
+        "magento/framework": "*",
+        "php": ">=7.3"
     },
     "autoload": {
         "files": [

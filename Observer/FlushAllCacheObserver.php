@@ -1,59 +1,67 @@
 <?php
 /**
  * Copyright © Webscale Networks
- * 
  */
+declare(strict_types = 1);
+
 namespace Webscale\CacheManager\Observer;
+
+use Magento\Framework\Event\Observer;
+use Magento\Framework\HTTP\Client\Curl;
+use Webscale\CacheManager\Model\Config;
 
 class FlushAllCacheObserver implements \Magento\Framework\Event\ObserverInterface
 {
-
+    /**
+     * @var Curl
+     */
     protected $_curl;
 
     /**
-   * Constructor
-   *
-   * @param string $url
-   * @param \Magento\Framework\HTTP\Adapter\Curl $curl
-   */
+     * @var Config
+     */
+    private $config;
 
-
+    /**
+     * Constructor
+     *
+     * @param Curl   $curl
+     * @param Config $config
+     */
     public function __construct(
-    \Magento\Framework\App\Cache\TypeListInterface $cacheTypeList,
-    \Magento\Framework\App\Cache\Frontend\Pool $cacheFrontendPool,
-    \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
-    \Magento\Framework\HTTP\Client\Curl $curl
+        Curl $curl,
+        Config $config
     ) {
-            $this->cacheTypeList = $cacheTypeList;
-            $this->cacheFrontendPool = $cacheFrontendPool;
-            $this->scopeConfig = $scopeConfig;
-            $this->_curl = $curl;
+        $this->_curl = $curl;
+        $this->config = $config;
     }
 
-    public function execute(\Magento\Framework\Event\Observer $observer)
+    /**
+     * Flush All Cache
+     *
+     * @param Observer $observer
+     *
+     * @return void
+     */
+    public function execute(Observer $observer)
     {
-        
-        $API_token    = $this->scopeConfig->getValue('cachemanager/Setup/token', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
-        $query_search = $this->scopeConfig->getValue('cachemanager/Setup/query', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
-        $app_name     = $this->scopeConfig->getValue('cachemanager/Setup/app_name', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+        if (!$this->config->isActive()) {
+            return;
+        }
 
-       // echo "Values ".$API_token." ".$query_search." ".$app_name;exit;
+        $token = $this->config->getToken();
+        $appName = $this->config->getAppName();
 
-          $data ='{"type":"invalidate-cache","target":"/v2/applications/'.$app_name.'","parameters":{"urls":["*://*\/*"]}}';
-          try{
-            $url = 'https://api.webscale.com/v2/tasks';
+        $data = '{"type":"invalidate-cache","target":"/v2/applications/'
+            . $appName . '","parameters":{"urls":["*://*\/*"]}}';
+        try {
+            $url = $this->config->getApiUrl();
             $this->_curl->addHeader("Content-Type", "application/json");
-            $this->_curl->addHeader("Authorization", "Bearer $API_token");
+            $this->_curl->addHeader("Authorization", "Bearer $token");
             $this->_curl->addHeader("Accept", "application/json");
-            $this->_curl->post($url,$data);
-            //response will contain the output in form of JSON string
-            $response = $this->_curl->getBody();
-           // $responseArr = $response->__toArray();
-           // print_r($response);
+            $this->_curl->post($url, $data);
+        } catch (\Exception $e) {
+            print($e);
         }
-        catch (\Exception $e) {
-           print($e);
-        }
-       
     }
-} 
+}
