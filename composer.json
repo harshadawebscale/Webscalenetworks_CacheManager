@@ -3,13 +3,17 @@
     "description": "Webscale Site Cache manager",
     "type": "magento2-module",
     "license": "OSL-3.0",
+    "version": "0.1.0",
     "authors": [
         {
             "name": "Webscale",
             "email": "harshada@webscalenetworks.com"
         }
     ],
-    "require": {},
+    "require": {
+        "magento/framework": "*",
+        "php": ">=7.3"
+    },
     "autoload": {
         "files": [
             "registration.php"
