@@ -61,7 +61,8 @@ class FlushAllCacheObserver implements \Magento\Framework\Event\ObserverInterfac
             $this->_curl->addHeader("Accept", "application/json");
             $this->_curl->post($url, $data);
         } catch (\Exception $e) {
-            print($e);
+            //Adding an error log message
+            $this->logger->error('Error flushing all cache: ' . $e->getMessage());
         }
     }
 }
