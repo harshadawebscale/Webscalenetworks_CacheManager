@@ -4,7 +4,7 @@
  */
 declare(strict_types = 1);
 
-namespace Webscale\CacheManager\Observer;
+namespace Webscalenetworks\CacheManager\Observer;
 
 use Magento\Framework\App\Cache\Tag\Resolver;
 use Magento\Framework\Event\Observer;
