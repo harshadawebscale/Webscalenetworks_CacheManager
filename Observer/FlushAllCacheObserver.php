@@ -8,7 +8,7 @@ namespace Webscalenetworks\CacheManager\Observer;
 
 use Magento\Framework\Event\Observer;
 use Magento\Framework\HTTP\Client\Curl;
-use Webscale\CacheManager\Model\Config;
+use Webscalenetworks\CacheManager\Model\Config;
 
 class FlushAllCacheObserver implements \Magento\Framework\Event\ObserverInterface
 {
