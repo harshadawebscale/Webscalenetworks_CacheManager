@@ -4,7 +4,7 @@
  */
 declare(strict_types = 1);
 
-namespace Webscale\CacheManager\Model;
+namespace Webscalenetworks\CacheManager\Model;
 
 use Magento\Framework\App\Config\ScopeConfigInterface as ScopeConfig;
 use Magento\Store\Model\ScopeInterface as Scope;
