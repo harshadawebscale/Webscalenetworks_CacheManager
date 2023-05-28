@@ -1,7 +1,7 @@
 <?php
 declare(strict_types = 1);
 
-namespace Webscale\CacheManager\Setup\Patch\Data;
+namespace Webscalenetworks\CacheManager\Setup\Patch\Data;
 
 use Magento\Framework\DB\Adapter\AdapterInterface;
 use Magento\Framework\Setup\Patch\DataPatchInterface;
