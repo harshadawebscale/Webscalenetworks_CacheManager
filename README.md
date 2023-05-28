@@ -7,8 +7,7 @@ Module flushes the Webscale cache for all URLs from Magento
 ### Composer
 
 ```bash
-composer config repositories.webscalenetworks git git@github.com:harshadawebscale/Webscalenetworks_CacheManager.git
-composer require webscale/cachemanager
+composer require webscalenetworks/cachemanager:dev-main
 
 php bin/magento module:enable Webscalenetworks_CacheManager
 php bin/magento setup:upgrade
