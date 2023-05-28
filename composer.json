@@ -1,12 +1,12 @@
 {
-    "name": "webscale/cachemanager",
+    "name": "webscalenetworks/cachemanager",
     "description": "Webscale Site Cache manager",
     "type": "magento2-module",
     "license": "OSL-3.0",
     "version": "0.1.0",
     "authors": [
         {
-            "name": "Webscale",
+            "name": "Webscale Networks",
             "email": "harshada@webscalenetworks.com"
         }
     ],
@@ -19,7 +19,7 @@
             "registration.php"
         ],
         "psr-4": {
-            "Webscale\\CacheManager\\": ""
+            "Webscalenetworks\\CacheManager\\": ""
         }
     }
 }
