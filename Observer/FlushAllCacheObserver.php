@@ -4,7 +4,7 @@
  */
 declare(strict_types = 1);
 
-namespace Webscale\CacheManager\Observer;
+namespace Webscalenetworks\CacheManager\Observer;
 
 use Magento\Framework\Event\Observer;
 use Magento\Framework\HTTP\Client\Curl;
