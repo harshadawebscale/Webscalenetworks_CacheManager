@@ -4,7 +4,7 @@
  */
 declare(strict_types = 1);
 
-namespace Webscale\CacheManager\Model\Cache;
+namespace Webscalenetworks\CacheManager\Model\Cache;
 
 use Magento\Framework\App\Cache\Type\FrontendPool;
 
