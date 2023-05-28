@@ -9,6 +9,6 @@ use Magento\Framework\Component\ComponentRegistrar;
 
 ComponentRegistrar::register(
     ComponentRegistrar::MODULE,
-    'Webscale_CacheManager',
+    'Webscalenetworks_CacheManager',
     __DIR__
 );
