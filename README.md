@@ -19,6 +19,7 @@ To install this package please follow below steps:
 1. Upload the content of zip file to app/code/Webscalenetworks/CacheManager
 2. Enable the module using the command 'bin/magento module:enable Webscalenetworks_CacheManager'
 3. Run setup upgrade 'php bin/magento setup:upgrade'
+4. Run compile 'php bin/magento setup:di:compile'
 
 ## Configuration
 
