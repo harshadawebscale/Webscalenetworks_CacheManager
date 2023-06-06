@@ -2,10 +2,8 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
         <cachemanager>
-            <config>
                 <active>0</active>
                 <api_url>https://api.webscale.com/v2/tasks</api_url>
-            </config>
         </cachemanager>
     </default>
 </config>
