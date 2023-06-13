@@ -81,7 +81,7 @@ class FlushByTags implements \Magento\Framework\Event\ObserverInterface
                // $responseArr = $response->__toArray();
                // print_r($response);
             } catch (\Exception $e) {
-               print($e);
+              // print($e);
             }
         }
             //print_r($othertags);
